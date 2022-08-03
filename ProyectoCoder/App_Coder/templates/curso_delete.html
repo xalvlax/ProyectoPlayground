@@ -1,0 +1,17 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+
+{% block bloqueQueCambia %}
+
+    <form method="POST">{% csrf_token %}
+
+        <p>Está seguro que desea eliminar?</p>
+
+        <a href="ListaCursos">Volver</a>
+        <input type="submit" value="Confirmar">
+
+    </form>
+
+{% endblock bloqueQueCambia %}

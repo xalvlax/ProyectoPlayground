@@ -1,0 +1,31 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+
+{% block bloqueQueCambia %}
+
+    <h1>Lista de Profesres</h1>
+
+    <ul>
+        
+        {% for profesor in profesores %}
+            <li>{{profesor}}</li>
+            <div>
+                <form action="{% url 'EliminarProfesor' profesor.id %}" method="POST">{% csrf_token %}
+                    <button type="submit">Eliminar</button>
+                </form>
+                <button>
+                    <a href="{% url 'EditarProfesor' profesor.id %}">Editar</a>
+                </button>
+            </div>
+
+        {% endfor %}
+            
+    </ul>
+
+
+    <a href="{% url 'CreaProfesor' %}">Crear Profesor</a>
+
+{% endblock bloqueQueCambia %}
+    

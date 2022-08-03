@@ -1,0 +1,29 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+
+{% block bloqueQueCambia %}
+
+    <h1>Lista de Cursos</h1>
+
+    <ul>
+        
+        {% for curso in cursos %}
+            <li>
+                <a href="{% url 'DetalleCursos' curso.id %}">{{curso}}</a>
+            </li>
+            <button>
+                <a href="{% url 'EliminaCursos' curso.id %}">Eliminar</a>
+            </button>
+            <button>
+                <a href="{% url 'ActualizaCursos' curso.id %}">Editar</a>
+            </button>
+        {% endfor %}
+            
+    </ul>
+
+    <a href="{% url 'CreaCursos' %}">Crear Curso</a>
+
+{% endblock bloqueQueCambia %}
+    
