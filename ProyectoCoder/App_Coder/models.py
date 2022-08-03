@@ -33,7 +33,7 @@ class Profesor(models.Model):
     apellido = models.CharField(max_length=30)
     email = models.EmailField()
     profesion = models.CharField(max_length=30)
-    user_is = models.OneToOneField(User, on_delete=models.CASCADE)
+    user_is = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self) -> str:
         return f'{self.nombre} - {self.apellido}'
